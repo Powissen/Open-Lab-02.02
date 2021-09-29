@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Open_Lab_02._02
 {
@@ -6,9 +7,20 @@ namespace Open_Lab_02._02
     {
         public void Format(double[] numbers)
         {
-            foreach (double num in numbers) 
-            { 
-                Console.Write(String.Format("{0:0.00} ", num)); 
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (i == numbers.Length - 1)
+                {
+                    string num = String.Format("{0:0.00}", numbers[i]);
+                    num = num.Replace(',', '.');
+                    Console.Write(num);
+                }
+                else
+                {
+                    string num = String.Format("{0:0.00} ", numbers[i]);
+                    num = num.Replace(',', '.');
+                    Console.Write(num);
+                }
             }
         }
     }
